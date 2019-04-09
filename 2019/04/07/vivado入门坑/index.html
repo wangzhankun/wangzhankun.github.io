@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="For You" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        vivado入门坑｜wangzhankun&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://wangzhankun.github.io/2019/04/07/vivado入门坑/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="true" data-istags="false
+" data-ishome="false">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    For You
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/page-title/">page title</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img" src>
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>vivado入门坑</h1>
+                    
+                    <span class="meta">
+                         作者 王占坤
+                        <span>
+                          日期 2019-04-07
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#自己动手写COU" title="自己动手写COU">自己动手写COU</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            vivado入门坑
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="vivado"><a href="#vivado" class="headerlink" title="vivado"></a>vivado</h1><p>本文主要介绍Windows10平台下vivado的相关使用和一些报错总结。<br></p>
+<p>版本是2018.3。<br></p>
+<p>注意：vivado的project的所有路径以及文件必须全英，否则会出现未知错误。<br></p>
+<h1 id="text-editor"><a href="#text-editor" class="headerlink" title="text-editor"></a>text-editor</h1><p>vivado自带的editor非常不好用，谁用谁知道。因此我推荐使用vscode作为外部编辑器。</p>
+<h2 id="设置外部编辑器链接"><a href="#设置外部编辑器链接" class="headerlink" title="设置外部编辑器链接"></a>设置外部编辑器链接</h2><img src="/2019/04/07/vivado入门坑/vivado外部editor链接设置1.PNG" title="vivado外部editor链接设置1">
+<p>点击设置</p>
+<img src="/2019/04/07/vivado入门坑/vivado外部editor链接设置2.PNG" title="vivado外部editor链接设置2">
+<p>按照对应步骤点击<br>填入对应信息，我的是</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:/Program Files/Microsoft VS Code/Code.exe -g [file name] -l [line number]</span><br></pre></td></tr></table></figure>
+<p>也可以换成你喜欢的editor。<br></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:/Program Files/Microsoft VS Code/Code.exe</span><br></pre></td></tr></table></figure>
+<p>把上述路径替换成你喜欢的editor的路径即可，后面的参数应该不需要动，没有上手实验。具体可以再百度其他内容。<br></p>
+<h2 id="vscode拓展"><a href="#vscode拓展" class="headerlink" title="vscode拓展"></a>vscode拓展</h2><p>推荐verilog编写的好用拓展插件。<br></p>
+<p>在vscode商店搜索<em>verilog</em>，<br></p>
+<img src="/2019/04/07/vivado入门坑/vivado的vscode拓展1.PNG" title="vivado的vscode拓展1">
+<p>按照拓展的教程安装即可。注意verilog format需要下载相应的EXE文件。拓展的安装教程都有具体描述，不赘述<br></p>
+<h2 id="vscode拓展的坑"><a href="#vscode拓展的坑" class="headerlink" title="vscode拓展的坑"></a>vscode拓展的坑</h2><p>verilog hdl/system verilog拓展主要提供了语法高亮和自动补全，在自动补全模块有时会出现问题，无法显示自动补全信息。这时可以先将所有的文件保存然后就会出现补全的。<br></p>
+<p>verilog format本身也有一些bug，但是基本不影响使用。<br></p>
+<h1 id="vivado的一些错误"><a href="#vivado的一些错误" class="headerlink" title="vivado的一些错误"></a>vivado的一些错误</h1><p>感觉vivado的warning和error有些问题，因为有的warning会导致你无法正常综合，感觉这已经是error了，不应该提示错误<br></p>
+<p>当发现错误之后可以右键错误信息，点击<em>search for answer record</em>可以在论坛找到一些帮助。<br></p>
+<h2 id="显示某些元件被移除"><a href="#显示某些元件被移除" class="headerlink" title="显示某些元件被移除"></a>显示某些元件被移除</h2><p>在2017.2中会出现类似的报错，这时需要先检查对应的元件有没有在程序中写错名字，需要查看全文的。如果确实没有程序错误那么很可能是vivado本身的问题，我是用2018.3之后相同的工程并没有出现类似错误。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/04/07/平衡车制作/" data-toggle="tooltip" data-placement="top" title="平衡车制作">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vivado"><span class="toc-text">vivado</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#text-editor"><span class="toc-text">text-editor</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置外部编辑器链接"><span class="toc-text">设置外部编辑器链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode拓展"><span class="toc-text">vscode拓展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode拓展的坑"><span class="toc-text">vscode拓展的坑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vivado的一些错误"><span class="toc-text">vivado的一些错误</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#显示某些元件被移除"><span class="toc-text">显示某些元件被移除</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#自己动手写COU" title="自己动手写COU">自己动手写COU</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://github.com/wangzhankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; For You 2019
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wangzhankun.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>
