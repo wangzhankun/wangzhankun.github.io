@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        MIPS32指令集架构简介｜wangzhankun&#39;s blog
+        Tags｜wangzhankun&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://wangzhankun.github.io/2019/04/05/MIPS32指令集架构简介/">
+    <link rel="canonical" href="http://wangzhankun.github.io/Tags/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="true" data-istags="false
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="false" data-istags="false
 " data-ishome="false">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -139,157 +139,160 @@
 </script>
 
 <!-- Main Content -->
-
-<!--only post-->
-
-
-<img class="wechat-title-img" src>
-
-
 <style>
+    .intro-header .site-heading {
+        margin: 50px;
+    }
+    
     header.intro-header {
-            background-image: url('')
-        }
-
-        
+        background-image: url('')
+    }
+    
 </style>
 
+<!-- Page Header -->
 <header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <div class="post-heading">
-                    <h1>MIPS32指令集架构简介</h1>
-                    
-                    <span class="meta">
-                        作者 王占坤
-                        <span>
-                            日期 2019-04-05
-                        </span>
-                    </span>
-
-                    <!-- hexo-wordcount 字数统计 -->
-
-                    <div class="tags text-center">
-                        
-                        <a class="tag" href="/tags/#CPU" title="CPU">CPU</a>
-                        
-                        <a class="tag" href="/tags/#MIPS32" title="MIPS32">MIPS32</a>
-                        
-                        <a class="tag" href="/tags/#指令集架构" title="指令集架构">指令集架构</a>
-                        
-                    </div>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading text-center">
+                    <h1>Tags</h1>
+                    <span class="subheading"></span>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="post-title-haojen">
-        <span>
-            MIPS32指令集架构简介
-        </span>
     </div>
 </header>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>指令的主要任务是对操作数进行运算，操作数有不同的类型和长度，MIPS32提供的基本数据类型如下。</p>
-<ul>
-<li>位(b)：长度为bit</li>
-<li>字节(byte): 长度是8bit</li>
-<li>半字(half word): 长度是16bit</li>
-<li>字(word)：长度是32bit</li>
-<li>双字(double word)：长度是64bit<br>此外，还有32位单精度浮点数，64位双精度浮点数</li>
-</ul>
-<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>RISC一大特点是：大量使用寄存器。这是因为寄存器的存取可以在一个时钟周期内完成，同时简化了寻址方式。<br><br>MIPS32中的指令中除加载/存储指令外，都是使用寄存器或者<a href="https://baike.baidu.com/item/%E7%AB%8B%E5%8D%B3%E6%95%B0/3062020" target="_blank" rel="noopener">立即数</a>作为操作数的。<br></p>
-<h2 id="通用寄存器（General-Purpose-Register-GPR）"><a href="#通用寄存器（General-Purpose-Register-GPR）" class="headerlink" title="通用寄存器（General Purpose Register, GPR）"></a>通用寄存器（General Purpose Register, GPR）</h2><p>MIPS32定义了32个通用寄存器，使用$0、$1…$31表示，都是32位。<br>关于这32个通用寄存器的约定用法有时间补充。</p>
-<h2 id="特殊寄存器"><a href="#特殊寄存器" class="headerlink" title="特殊寄存器"></a>特殊寄存器</h2><p>MIPS32定义了3个特殊寄存器：</p>
-<ul>
-<li>程序计数器（Program Counter, PC)</li>
-<li>乘除结果高位寄存器（HI）</li>
-<li>乘除结果低位寄存器（LO）</li>
-</ul>
-<p>HI和LO保存乘法运算的结果，HI存储高32位，LO存储低32位；进行除法运算时，HI存储余数，LO存储商。<br></p>
-<h1 id="字节次序"><a href="#字节次序" class="headerlink" title="字节次序"></a>字节次序</h1><p>数据在存储器中按字节存放，处理器也是按照字节访问存储器中的指令或数据。<br></p>
-<h2 id="大端模式（Big-Endian）"><a href="#大端模式（Big-Endian）" class="headerlink" title="大端模式（Big-Endian）"></a>大端模式（Big-Endian）</h2><p>也称作MSB（Most Significant Byte）<br><br>若读出一个字，即4个字节，那么交给处理器的结果是<br><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;mem[n],mem[n+1],mem[n+2],mem[n+3]&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="小端模式（Little-Endian）"><a href="#小端模式（Little-Endian）" class="headerlink" title="小端模式（Little-Endian）"></a>小端模式（Little-Endian）</h2><p>也称作LSB(Least Significant Byte)<br><br>结果是<br><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;mem[n+3],mem[n+2],mem[n+1],mem[n]&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="指令格式"><a href="#指令格式" class="headerlink" title="指令格式"></a>指令格式</h1>
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <!-- 标签云 -->
+            <div id="tag_cloud" class="tags">
+                
+                <a href="#自己动手写COU" title="自己动手写COU" rel="1">自己动手写COU</a>
+                
+                <a href="#CPU" title="CPU" rel="1">CPU</a>
+                
+                <a href="#MIPS32" title="MIPS32" rel="1">MIPS32</a>
+                
+                <a href="#指令集架构" title="指令集架构" rel="1">指令集架构</a>
+                
+                <a href="#自己动手写CPU" title="自己动手写CPU" rel="1">自己动手写CPU</a>
+                
+                <a href="#平衡车" title="平衡车" rel="1">平衡车</a>
+                
+            </div>
 
+            <!-- 标签列表 -->
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="自己动手写COU">
+                    <span class="tag-text">自己动手写COU</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2019/04/07/vivado入门坑/">
+                        <h2 class="post-title">
+                            vivado入门坑
+                        </h2>
+                        
+                    </a>
+                </div>
                 <hr>
                 
-
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/2019/04/07/平衡车制作/" data-toggle="tooltip" data-placement="top" title="平衡车制作">&larr; Previous Post</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/2019/04/05/自己动手写CPU/" data-toggle="tooltip" data-placement="top" title="自己动手写CPU">Next Post &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-                
-
-                
-
-
-                <!--加入新的评论系统-->
-                
-
-                
-
             </div>
-
-            <div class="hidden-xs col-sm-3 toc-col">
-                <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据类型"><span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#寄存器"><span class="toc-text">寄存器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#通用寄存器（General-Purpose-Register-GPR）"><span class="toc-text">通用寄存器（General Purpose Register, GPR）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊寄存器"><span class="toc-text">特殊寄存器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字节次序"><span class="toc-text">字节次序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#大端模式（Big-Endian）"><span class="toc-text">大端模式（Big-Endian）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小端模式（Little-Endian）"><span class="toc-text">小端模式（Little-Endian）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#指令格式"><span class="toc-text">指令格式</span></a></li></ol>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="CPU">
+                    <span class="tag-text">CPU</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2019/04/05/MIPS32指令集架构简介/">
+                        <h2 class="post-title">
+                            MIPS32指令集架构简介
+                        </h2>
+                        
+                    </a>
                 </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- Sidebar Container -->
-
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
-                    </h5>
-                    <div class="tags">
-                        
-                        <a class="tag" href="/tags/#CPU" title="CPU">CPU</a>
-                        
-                        <a class="tag" href="/tags/#MIPS32" title="MIPS32">MIPS32</a>
-                        
-                        <a class="tag" href="/tags/#指令集架构" title="指令集架构">指令集架构</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
+                <hr>
                 
             </div>
-        </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="MIPS32">
+                    <span class="tag-text">MIPS32</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2019/04/05/MIPS32指令集架构简介/">
+                        <h2 class="post-title">
+                            MIPS32指令集架构简介
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="指令集架构">
+                    <span class="tag-text">指令集架构</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2019/04/05/MIPS32指令集架构简介/">
+                        <h2 class="post-title">
+                            MIPS32指令集架构简介
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="自己动手写CPU">
+                    <span class="tag-text">自己动手写CPU</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2019/04/05/自己动手写CPU/">
+                        <h2 class="post-title">
+                            自己动手写CPU
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="平衡车">
+                    <span class="tag-text">平衡车</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2019/04/07/平衡车制作/">
+                        <h2 class="post-title">
+                            平衡车制作
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
 
+        </div>
     </div>
-</article>
-
-
-
+</div>
 
 <!-- Footer -->
 <!-- Footer -->

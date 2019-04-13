@@ -80,6 +80,22 @@
                         
 							
                         <li>
+                            <a href="/Categories/">Categories</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/Tags/">Tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
                             <a href="/page-title/">page title</a>
                         </li>
 							
@@ -131,12 +147,11 @@
 
 
 <style>
-    
     header.intro-header {
-        background-image: url('')
-    }
+            background-image: url('')
+        }
 
-    
+        
 </style>
 
 <header class="intro-header">
@@ -147,11 +162,14 @@
                     <h1>vivado入门坑</h1>
                     
                     <span class="meta">
-                         作者 王占坤
+                        作者 王占坤
                         <span>
-                          日期 2019-04-07
-                         </span>
+                            日期 2019-04-07
+                        </span>
                     </span>
+
+                    <!-- hexo-wordcount 字数统计 -->
+
                     <div class="tags text-center">
                         
                         <a class="tag" href="/tags/#自己动手写COU" title="自己动手写COU">自己动手写COU</a>
@@ -175,7 +193,7 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="vivado"><a href="#vivado" class="headerlink" title="vivado"></a>vivado</h1><p>本文主要介绍Windows10平台下vivado的相关使用和一些报错总结。<br></p>
-<p>版本是2018.3。<br></p>
+<p>我是用的版本是2018.3。<br></p>
 <p>注意：vivado的project的所有路径以及文件必须全英，否则会出现未知错误。<br></p>
 <h1 id="text-editor"><a href="#text-editor" class="headerlink" title="text-editor"></a>text-editor</h1><p>vivado自带的editor非常不好用，谁用谁知道。因此我推荐使用vscode作为外部编辑器。</p>
 <h2 id="设置外部编辑器链接"><a href="#设置外部编辑器链接" class="headerlink" title="设置外部编辑器链接"></a>设置外部编辑器链接</h2><img src="/2019/04/07/vivado入门坑/vivado外部editor链接设置1.PNG" title="vivado外部editor链接设置1">
@@ -183,18 +201,30 @@
 <img src="/2019/04/07/vivado入门坑/vivado外部editor链接设置2.PNG" title="vivado外部editor链接设置2">
 <p>按照对应步骤点击<br>填入对应信息，我的是</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:/Program Files/Microsoft VS Code/Code.exe -g [file name] -l [line number]</span><br></pre></td></tr></table></figure>
-<p>也可以换成你喜欢的editor。<br></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:/Program Files/Microsoft VS Code/Code.exe</span><br></pre></td></tr></table></figure>
-<p>把上述路径替换成你喜欢的editor的路径即可，后面的参数应该不需要动，没有上手实验。具体可以再百度其他内容。<br></p>
+<p>更改编译器路径即可换成你喜欢的editor。后面的参数应该不需要改动，但是没有实践，不保证正确性。<br></p>
 <h2 id="vscode拓展"><a href="#vscode拓展" class="headerlink" title="vscode拓展"></a>vscode拓展</h2><p>推荐verilog编写的好用拓展插件。<br></p>
 <p>在vscode商店搜索<em>verilog</em>，安装前两个即可。<br></p>
 <img src="/2019/04/07/vivado入门坑/vivado的vscode拓展1.PNG" title="vivado的vscode拓展1">
-<p>按照拓展的教程安装即可。注意verilog format需要下载相应的EXE文件。拓展的安装教程都有具体描述，不赘述<br></p>
+<p>按照拓展的教程安装即可。注意verilog format需要下载相应的EXE文件。拓展的安装教程都有具体描述，不赘述。建议看完拓展的教程，以避免一些坑点。<br></p>
 <h2 id="vscode拓展的坑"><a href="#vscode拓展的坑" class="headerlink" title="vscode拓展的坑"></a>vscode拓展的坑</h2><p>verilog hdl/system verilog拓展主要提供了语法高亮和自动补全，在自动补全模块有时会出现问题，无法显示自动补全信息。这时可以先将所有的文件保存然后就会出现补全的。<br></p>
 <p>verilog format本身也有一些bug，但是基本不影响使用。<br></p>
-<h1 id="vivado的一些错误"><a href="#vivado的一些错误" class="headerlink" title="vivado的一些错误"></a>vivado的一些错误</h1><p>感觉vivado的warning和error有些问题，因为有的warning会导致你无法正常综合，感觉这已经是error了，不应该提示错误<br></p>
-<p>当发现错误之后可以右键错误信息，点击<em>search for answer record</em>可以在论坛找到一些帮助。<br></p>
-<h2 id="显示某些元件被移除"><a href="#显示某些元件被移除" class="headerlink" title="显示某些元件被移除"></a>显示某些元件被移除</h2><p>在2017.2中会出现类似的报错，这时需要先检查对应的元件有没有在程序中写错名字，需要查看全文的。如果确实没有程序错误那么很可能是vivado本身的问题，我是用2018.3之后相同的工程并没有出现类似错误。</p>
+<h1 id="vivado报错总结"><a href="#vivado报错总结" class="headerlink" title="vivado报错总结"></a>vivado报错总结</h1><p>warning一般不会影响程序的正确性，但是建议还是要进行检查，否则即使能够正确烧进板子也有可能运行不正确。critical warning建议必须解决，否则后续 implmentation 或者 generate bitstream 仍然会出现错误。在确保 warning 不会对程序产生明显不可预知效果的情况下再进行实现。<br></p>
+<p>当发现错误之后可以右键错误信息，点击 <em>search for answer record</em> 可以在论坛找到一些帮助。<br><br><img src="/2019/04/07/vivado入门坑/search_for_answer.PNG" title="search for answer"></p>
+<h2 id="显示某些元件被移除"><a href="#显示某些元件被移除" class="headerlink" title="显示某些元件被移除"></a>显示某些元件被移除</h2><p>在2017.2中会出现类似的报错，这时需要先检查对应的元件有没有在程序中写错名字，需要查看全文的。如果确实没有程序错误那么很可能是vivado本身的问题。在论坛中一些人说是软件错误，升级到2018.03之后尽管还会有warning，但是可以正常综合、实现。实测用2018.3之后相同的工程并没有出现类似错误。<br></p>
+<h2 id="multi-drivers"><a href="#multi-drivers" class="headerlink" title="multi drivers"></a>multi drivers</h2><p>这时应该是变量被重复赋值了。仔细检查相应的赋值语句。如果一个模块被重复使用而且模块中有赋值操作也有可能会导致相应的错误。<br></p>
+<h2 id="unconnected-port"><a href="#unconnected-port" class="headerlink" title="unconnected port"></a>unconnected port</h2><p>检查模块是否只对某个端口进行了操作<br></p>
+<p>例如:<br><br><img src="/2019/04/07/vivado入门坑/unconnected_port.PNG" title="unconnected_port"></p>
+<p>这里尽管综合正确，但是检查warning会发现btn[1],btn[2],btn[3]没有被连接。而且在后续实现和烧录过程也能够正常进行。这是因为默认对btn[0]进行了连接，实际实现不是预料中的四个按钮进行控制。这也是为什么要检查warning的原因。<br></p>
+<h2 id="功耗"><a href="#功耗" class="headerlink" title="功耗"></a>功耗</h2><p>未解决。<br></p>
+<p>reference:</p>
+<ul>
+<li><a href="https://blog.csdn.net/u012923751/article/details/79554012" target="_blank" rel="noopener">多途径降低FPGA设计的功耗</a></li>
+<li><a href="http://xilinx.eetrend.com/files-eetrend-xilinx/article/200912/300-272-fpga101xcell32.pdf" target="_blank" rel="noopener">赛灵思FPGA的功耗优化设计</a></li>
+<li><a href="https://forums.xilinx.com/t5/%E7%BB%BC%E5%90%88%E8%AE%A8%E8%AE%BA/%E5%8A%9F%E8%80%97%E7%AE%A1%E7%90%86%E6%94%BB%E7%95%A5-19%E6%8B%9B%E9%99%8D%E4%BD%8E20nm-UltraScale-FPGA%E5%99%A8%E4%BB%B6%E5%8A%9F%E8%80%97/td-p/466544" target="_blank" rel="noopener">功耗管理攻略</a></li>
+</ul>
+<p>在进行fpga设计时，要注意降低功耗。否则仍然可能无法正常运行。<br><br><img src="/2019/04/07/vivado入门坑/功耗on_chip.PNG" title="功耗on_chip"><br><img src="/2019/04/07/vivado入门坑/功耗summary.PNG" title="功耗summary"></p>
+<p>在实现之后，可以再project summary找到如上信息。<br><br></p>
+<p>我们可以看到，IO功耗占用最大，因此我们应想办法降低IO功耗。<br><br><img src="/2019/04/07/vivado入门坑/module_lists.PNG" title="module_lists"></p>
 
                 <hr>
                 
@@ -222,7 +252,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vivado"><span class="toc-text">vivado</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#text-editor"><span class="toc-text">text-editor</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置外部编辑器链接"><span class="toc-text">设置外部编辑器链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode拓展"><span class="toc-text">vscode拓展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode拓展的坑"><span class="toc-text">vscode拓展的坑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vivado的一些错误"><span class="toc-text">vivado的一些错误</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#显示某些元件被移除"><span class="toc-text">显示某些元件被移除</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vivado"><span class="toc-text">vivado</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#text-editor"><span class="toc-text">text-editor</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置外部编辑器链接"><span class="toc-text">设置外部编辑器链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode拓展"><span class="toc-text">vscode拓展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode拓展的坑"><span class="toc-text">vscode拓展的坑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vivado报错总结"><span class="toc-text">vivado报错总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#显示某些元件被移除"><span class="toc-text">显示某些元件被移除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#multi-drivers"><span class="toc-text">multi drivers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unconnected-port"><span class="toc-text">unconnected port</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功耗"><span class="toc-text">功耗</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
@@ -257,9 +287,6 @@
 
     </div>
 </article>
-
-
-
 
 
 
@@ -373,6 +400,9 @@
 
 <!--wechat title img-->
 <img class="wechat-title-img" src="">
+
+
+
 </body>
 
 </html>
