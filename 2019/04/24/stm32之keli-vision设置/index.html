@@ -80,14 +80,6 @@
                         
 							
                         <li>
-                            <a href="/page-title/">page title</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
                             <a href="/Categories/">Categories</a>
                         </li>
 							
@@ -97,6 +89,14 @@
 							
                         <li>
                             <a href="/Tags/">Tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/page-title/">page title</a>
                         </li>
 							
 						
@@ -172,7 +172,7 @@
 
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#-stm32" title="-stm32">-stm32</a>
+                        <a class="tag" href="/tags/#stm32" title="stm32">stm32</a>
                         
                     </div>
                 </div>
@@ -198,12 +198,25 @@
 <li>keil μvision5</li>
 </ul>
 <img src="/2019/04/24/stm32之keli-vision设置/1.png" width="1">
-<h2 id="output"><a href="#output" class="headerlink" title="output"></a>output</h2><img src="/2019/04/24/stm32之keli-vision设置/output.png" title="output">
-<p>这里点击最上面的output选项，注意勾选相关选项。其中name of excutable可以根据需要进行更改。这个只是你希望编译的程序的名字。<br></p>
-<h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><img src="/2019/04/24/stm32之keli-vision设置/debug.png" title="debug">
-<p>点击debug，一般默认勾选即可。</p>
+<h2 id="output"><a href="#output" class="headerlink" title="output"></a>output</h2><p>这里点击最上面的output选项，注意勾选相关选项。其中name of excutable可以根据需要进行更改。这个只是你希望编译的程序的名字。<br></p>
+<img src="/2019/04/24/stm32之keli-vision设置/output.png" title="output">
 <h2 id="device"><a href="#device" class="headerlink" title="device"></a>device</h2><p>选择对应的device。</p>
 <img src="/2019/04/24/stm32之keli-vision设置/device.png" title="device">
+<h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><p>点击debug，一般默认勾选即可。<br></p>
+<img src="/2019/04/24/stm32之keli-vision设置/debug.png" title="debug">
+<h2 id="jtlink-settings"><a href="#jtlink-settings" class="headerlink" title="jtlink settings"></a>jtlink settings</h2><p>在上一步debug中点击对应settings后会看到如下界面,并点击flash download<br></p>
+<img src="/2019/04/24/stm32之keli-vision设置/jtlinksettings1.png" title="jtlinksettings1">
+<p>加入空格中用描述的话，请先移除。之后点击add<br></p>
+<img src="/2019/04/24/stm32之keli-vision设置/jtlinksettings2.png" title="jtlinksetting2">
+<p>找到对应的条目。根据自己的板子实际情况进行选择。如果你没有找到对应的algorithm programming,请点击<a href="http://www2.keil.com/mdk5/legacy" target="_blank" rel="noopener">此处</a><br></p>
+<img src="/2019/04/24/stm32之keli-vision设置/jtlinksettings3.png" title="jtlinksetting3">
+<p>根据自己板子的情况和自己编译器版本号选择对应的增强，之后默认安装即可。之后重启编译器即可<br></p>
+<p>关于jlink的相关使用请按顺序参阅下述网页：<br></p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzUzNzk2NTMxMw==&amp;mid=2247483795&amp;idx=1&amp;sn=591064b0bafc0ab4ba1097d1d2c4f3f3&amp;chksm=fadfa7fdcda82eeb1f4b55e9dbb9f5704634492b2e1344664bf7a713aa85e144abfc2048b511&amp;token=1936031160&amp;lang=zh_CN#rd&quot;" target="_blank" rel="noopener">使用Keil下载单独的Hex文件到单片机内</a></li>
+<li><a href="https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack" target="_blank" rel="noopener">jfash Windows下载地址</a></li>
+<li><a href="https://www.cnblogs.com/whik/p/10223855.html" target="_blank" rel="noopener">Jlink使用技巧之单独下载HEX文件到单片机</a></li>
+</ul>
 
                 <hr>
                 
@@ -231,7 +244,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#keil-μvision5设置"><span class="toc-text">keil μvision5设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#output"><span class="toc-text">output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#debug"><span class="toc-text">debug</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#device"><span class="toc-text">device</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#keil-μvision5设置"><span class="toc-text">keil μvision5设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#output"><span class="toc-text">output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#device"><span class="toc-text">device</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#debug"><span class="toc-text">debug</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jtlink-settings"><span class="toc-text">jtlink settings</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
@@ -253,7 +266,7 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#-stm32" title="-stm32">-stm32</a>
+                        <a class="tag" href="/tags/#stm32" title="stm32">stm32</a>
                         
                     </div>
                 </section>
