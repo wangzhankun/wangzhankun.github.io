@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="For You" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        爱因斯坦推理题｜wangzhankun&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://wangzhankun.github.io/2019/04/25/爱因斯坦推理题/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="true" data-istags="false
+" data-ishome="false">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    For You
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/page-title/">page title</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/Tags/">Tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/Categories/">Categories</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img" src>
+
+
+<style>
+    header.intro-header {
+            background-image: url('')
+        }
+
+        
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>爱因斯坦推理题</h1>
+                    
+                    <span class="meta">
+                        作者 王占坤
+                        <span>
+                            日期 2019-04-25
+                        </span>
+                    </span>
+
+                    <!-- hexo-wordcount 字数统计 -->
+
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#算法" title="算法">算法</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            爱因斯坦推理题
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>这个题目可以视作数独问题。<br></p>
+<p>下面所示的题目本身是错误的，但是并不影响我们进行分析。<br></p>
+<img src="/2019/04/25/爱因斯坦推理题/problem.jpg" title="problem">
+<h1 id="逻辑推理"><a href="#逻辑推理" class="headerlink" title="逻辑推理"></a>逻辑推理</h1><h2 id="房子颜色"><a href="#房子颜色" class="headerlink" title="房子颜色"></a>房子颜色</h2><p>挪威人住在一号房子且旁边是蓝色房子，易知二号房子为蓝色。由英国人住红色房子，绿色房子紧邻白色房子，可知一号房子为黄色。由中间房子喝牛奶，绿色房子喝咖啡，白色房子在绿色房子右边知，中间房子为红色。把剩余显而易见的信息填进去可得下表。<br></p>
+<img src="/2019/04/25/爱因斯坦推理题/logical1.png" title="logical1">
+<h2 id="丹麦人"><a href="#丹麦人" class="headerlink" title="丹麦人"></a>丹麦人</h2><p>由瑞典人养狗，不抽DR（德国人），DU（挪威人）,BM（英国人），不抽PM（此人养鸟），知其抽混合烟，故丹麦人抽PM烟养鸟。<br></p>
+<p>由丹麦人抽PM烟养鸟喝茶可知其住5号房。<br></p>
+<p>又有瑞典人养狗，其只能住在四号房。<br></p>
+<img src="/2019/04/25/爱因斯坦推理题/logical2.png" title="logical2">
+<p>此时我们发现，抽混合烟的旁边没有喝水的，因而此题目本身错误。<br></p>
+<h1 id="编程搜索"><a href="#编程搜索" class="headerlink" title="编程搜索"></a>编程搜索</h1><h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> Country</span><br><span class="line">&#123;</span><br><span class="line">    england,</span><br><span class="line">    swit,</span><br><span class="line">    germany,</span><br><span class="line">    norway,</span><br><span class="line">    denmark</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">enum</span> Color</span><br><span class="line">&#123;</span><br><span class="line">    green,</span><br><span class="line">    white,</span><br><span class="line">    red,</span><br><span class="line">    yellow,</span><br><span class="line">    blue</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">enum</span> Drink</span><br><span class="line">&#123;</span><br><span class="line">    coffee,</span><br><span class="line">    tea,</span><br><span class="line">    water,</span><br><span class="line">    milk,</span><br><span class="line">    redbull</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">enum</span> Cigarette</span><br><span class="line">&#123;</span><br><span class="line">    pm,</span><br><span class="line">    du,</span><br><span class="line">    bm,</span><br><span class="line">    dr,</span><br><span class="line">    hr</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">enum</span> Animal</span><br><span class="line">&#123;</span><br><span class="line">    dog,</span><br><span class="line">    cat,</span><br><span class="line">    horse,</span><br><span class="line">    bird,</span><br><span class="line">    fish</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">enum</span> Enum</span><br><span class="line">&#123;</span><br><span class="line">    country,</span><br><span class="line">    color,</span><br><span class="line">    drink,</span><br><span class="line">    cigarette,</span><br><span class="line">    animal</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="120中排列组合"><a href="#120中排列组合" class="headerlink" title="120中排列组合"></a>120中排列组合</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">120</span>][<span class="number">5</span>] = &#123;&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">0</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">1</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>&#125;,</span><br><span class="line">                 &#123;<span class="number">4</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="15个条件判断"><a href="#15个条件判断" class="headerlink" title="15个条件判断"></a>15个条件判断</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">pass</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//cout &lt;&lt; "hello" &lt;&lt; endl;</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//英国人，红色房</span></span><br><span class="line">        <span class="keyword">if</span> (result[country][j] == england &amp;&amp; result[color][j] != red)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//瑞典人，养狗</span></span><br><span class="line">        <span class="keyword">if</span> (result[country][j] == swit &amp;&amp; result[animal][j] != dog)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//丹麦人喝茶</span></span><br><span class="line">        <span class="keyword">if</span> (result[country][j] == denmark &amp;&amp; result[drink][j] != tea)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//绿房子在白房子左边</span></span><br><span class="line">        <span class="keyword">if</span> (result[color][j] == green &amp;&amp; j == <span class="number">5</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (result[color][j] == green &amp;&amp; result[color][j + <span class="number">1</span>] != white)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//绿房子主人喝咖啡</span></span><br><span class="line">        <span class="keyword">if</span> (result[color][j] == green &amp;&amp; result[drink][j] != coffee)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//抽pm烟的人养鸟</span></span><br><span class="line">        <span class="keyword">if</span> (result[cigarette][j] == pm &amp;&amp; result[animal][j] != bird)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//黄色房子抽du</span></span><br><span class="line">        <span class="keyword">if</span> (result[color][j] == yellow &amp;&amp; result[cigarette][j] != du)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//中间房子喝牛奶</span></span><br><span class="line">        <span class="keyword">if</span> (result[drink][<span class="number">2</span>] != milk)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//挪威人住在一号房</span></span><br><span class="line">        <span class="keyword">if</span> (result[country][<span class="number">0</span>] != norway)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//混合烟住在养猫人旁边</span></span><br><span class="line">        <span class="keyword">if</span> (result[cigarette][j] == hr)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == <span class="number">0</span> &amp;&amp; result[animal][j + <span class="number">1</span>] != cat)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (j == <span class="number">5</span> &amp;&amp; result[animal][j - <span class="number">1</span>] != cat)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (result[animal][j - <span class="number">1</span>] != cat &amp;&amp; result[animal][j + <span class="number">1</span>] != cat)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//养马人住在抽du人旁边,抽bm的人住在养马人的旁边</span></span><br><span class="line">        <span class="keyword">if</span> (result[cigarette][j] == du || result[cigarette][j] == bm)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == <span class="number">0</span> &amp;&amp; result[animal][j + <span class="number">1</span>] != horse)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (j == <span class="number">5</span> &amp;&amp; result[animal][j - <span class="number">1</span>] != horse)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (result[animal][j - <span class="number">1</span>] != horse &amp;&amp; result[animal][j + <span class="number">1</span>] != horse)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        <span class="comment">//德国人抽dr</span></span><br><span class="line">        <span class="keyword">if</span> (result[country][j] == germany &amp;&amp; result[cigarette][j] != dr)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//挪威人旁边是蓝房子</span></span><br><span class="line">        <span class="keyword">if</span> (result[country][j] == norway)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == <span class="number">0</span> &amp;&amp; result[color][j + <span class="number">1</span>] != blue)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (j == <span class="number">5</span> &amp;&amp; result[color][j - <span class="number">1</span>] != blue)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (result[color][j - <span class="number">1</span>] != blue &amp;&amp; result[color][j + <span class="number">1</span>] != blue)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//抽混合烟的邻居喝矿泉水</span></span><br><span class="line">        <span class="keyword">if</span> (result[cigarette][j] == hr)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == <span class="number">0</span> &amp;&amp; result[drink][j + <span class="number">1</span>] != water)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (j == <span class="number">5</span> &amp;&amp; result[drink][j - <span class="number">1</span>] != water)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (result[drink][j - <span class="number">1</span>] != water &amp;&amp; result[drink][j + <span class="number">1</span>] != water)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="dfs搜索函数"><a href="#dfs搜索函数" class="headerlink" title="dfs搜索函数"></a>dfs搜索函数</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> row)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (pass())</span><br><span class="line">    &#123;</span><br><span class="line">        Print();</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (row &gt;= <span class="number">5</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">120</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++)</span><br><span class="line">            result[row][j] = a[i][j];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (dfs(row + <span class="number">1</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="打印到out文件"><a href="#打印到out文件" class="headerlink" title="打印到out文件"></a>打印到out文件</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Print</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (result[animal][j] == fish)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (result[country][j] == england)</span><br><span class="line">                out &lt;&lt; <span class="string">"England"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (result[country][j] == swit)</span><br><span class="line">                out &lt;&lt; <span class="string">"Swit"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (result[country][j] == germany)</span><br><span class="line">                out &lt;&lt; <span class="string">"Germany"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (result[country][j] == norway)</span><br><span class="line">                out &lt;&lt; <span class="string">"Norway"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (result[country][j] == denmark)</span><br><span class="line">                out &lt;&lt; <span class="string">"Denmark"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//  country,</span></span><br><span class="line">    <span class="comment">// color,</span></span><br><span class="line">    <span class="comment">// drink,</span></span><br><span class="line">    <span class="comment">// cigarette,</span></span><br><span class="line">    <span class="comment">// animal</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i == country)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (result[i][j] == england)</span><br><span class="line">                    out &lt;&lt; <span class="string">"England,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == swit)</span><br><span class="line">                    out &lt;&lt; <span class="string">"Swit,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == germany)</span><br><span class="line">                    out &lt;&lt; <span class="string">"Germany,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == norway)</span><br><span class="line">                    out &lt;&lt; <span class="string">"Norway,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == denmark)</span><br><span class="line">                    out &lt;&lt; <span class="string">"Denmark,"</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// green,</span></span><br><span class="line">        <span class="comment">// white,</span></span><br><span class="line">        <span class="comment">// red,</span></span><br><span class="line">        <span class="comment">// yellow,</span></span><br><span class="line">        <span class="comment">// blue</span></span><br><span class="line">        <span class="comment">//*</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (i == color)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (result[i][j] == green)</span><br><span class="line">                    out &lt;&lt; <span class="string">"green,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == white)</span><br><span class="line">                    out &lt;&lt; <span class="string">"white,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == red)</span><br><span class="line">                    out &lt;&lt; <span class="string">"red,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == yellow)</span><br><span class="line">                    out &lt;&lt; <span class="string">"yellow,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == blue)</span><br><span class="line">                    out &lt;&lt; <span class="string">"blue,"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="comment">//*/</span></span><br><span class="line">        <span class="comment">// coffee,</span></span><br><span class="line">        <span class="comment">// tea,</span></span><br><span class="line">        <span class="comment">// water,</span></span><br><span class="line">        <span class="comment">// milk,</span></span><br><span class="line">        <span class="comment">// redbull</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (i == drink)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (result[i][j] == coffee)</span><br><span class="line">                    out &lt;&lt; <span class="string">"coffee,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == tea)</span><br><span class="line">                    out &lt;&lt; <span class="string">"tea,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == water)</span><br><span class="line">                    out &lt;&lt; <span class="string">"water,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == milk)</span><br><span class="line">                    out &lt;&lt; <span class="string">"milk,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == redbull)</span><br><span class="line">                    out &lt;&lt; <span class="string">"redbull,"</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// pm,</span></span><br><span class="line">        <span class="comment">// du,</span></span><br><span class="line">        <span class="comment">// bm,</span></span><br><span class="line">        <span class="comment">// dr,</span></span><br><span class="line">        <span class="comment">// hr</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (i == cigarette)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (result[i][j] == pm)</span><br><span class="line">                    out &lt;&lt; <span class="string">"pm,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == du)</span><br><span class="line">                    out &lt;&lt; <span class="string">"du,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == bm)</span><br><span class="line">                    out &lt;&lt; <span class="string">"bm,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == dr)</span><br><span class="line">                    out &lt;&lt; <span class="string">"dr,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == hr)</span><br><span class="line">                    out &lt;&lt; <span class="string">"hr,"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="comment">// dog,</span></span><br><span class="line">        <span class="comment">// cat,</span></span><br><span class="line">        <span class="comment">// horse,</span></span><br><span class="line">        <span class="comment">// bird,</span></span><br><span class="line">        <span class="comment">// fish</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (i == animal)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (result[i][j] == dog)</span><br><span class="line">                    out &lt;&lt; <span class="string">"dog,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == cat)</span><br><span class="line">                    out &lt;&lt; <span class="string">"cat,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == horse)</span><br><span class="line">                    out &lt;&lt; <span class="string">"horse,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == bird)</span><br><span class="line">                    out &lt;&lt; <span class="string">"bird,"</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (result[i][j] == fish)</span><br><span class="line">                    out &lt;&lt; <span class="string">"fish,"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        out &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/04/24/stm32之keli-vision设置/" data-toggle="tooltip" data-placement="top" title="stm32之keli-vision设置">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目描述"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#逻辑推理"><span class="toc-text">逻辑推理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#房子颜色"><span class="toc-text">房子颜色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#丹麦人"><span class="toc-text">丹麦人</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编程搜索"><span class="toc-text">编程搜索</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#枚举"><span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#120中排列组合"><span class="toc-text">120中排列组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15个条件判断"><span class="toc-text">15个条件判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs搜索函数"><span class="toc-text">dfs搜索函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打印到out文件"><span class="toc-text">打印到out文件</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#算法" title="算法">算法</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://github.com/wangzhankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; For You 2019
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wangzhankun.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+
+
+
+</body>
+
+</html>
