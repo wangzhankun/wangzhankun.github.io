@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        vivado入门坑｜wangzhankun&#39;s blog
+        GPU概述｜wangzhankun&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://wangzhankun.github.io/2019/04/07/vivado入门坑/">
+    <link rel="canonical" href="http://wangzhankun.github.io/2019/07/27/GPU概述/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -159,20 +159,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>vivado入门坑</h1>
+                    <h1>GPU概述</h1>
                     
                     <span class="meta">
                         作者 王占坤
                         <span>
-                            日期 2019-04-07
+                            日期 2019-07-27
                         </span>
                     </span>
 
                     <!-- hexo-wordcount 字数统计 -->
 
                     <div class="tags text-center">
-                        
-                        <a class="tag" href="/tags/#自己动手写CPU" title="自己动手写CPU">自己动手写CPU</a>
                         
                     </div>
                 </div>
@@ -181,7 +179,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            vivado入门坑
+            GPU概述
         </span>
     </div>
 </header>
@@ -192,59 +190,96 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="vivado"><a href="#vivado" class="headerlink" title="vivado"></a>vivado</h1><p>本文主要介绍Windows10平台下vivado的相关使用和一些报错总结。<br></p>
-<p>我是用的版本是2018.3。<br></p>
-<p>注意：vivado的project的所有路径以及文件必须全英，否则会出现未知错误。<br></p>
-<h1 id="text-editor"><a href="#text-editor" class="headerlink" title="text-editor"></a>text-editor</h1><p>vivado自带的editor非常不好用，谁用谁知道。因此我推荐使用vscode作为外部编辑器。</p>
-<h2 id="设置外部编辑器链接"><a href="#设置外部编辑器链接" class="headerlink" title="设置外部编辑器链接"></a>设置外部编辑器链接</h2><img src="/2019/04/07/vivado入门坑/vivado外部editor链接设置1.PNG" title="vivado外部editor链接设置1">
-<p>点击设置</p>
-<img src="/2019/04/07/vivado入门坑/vivado外部editor链接设置2.PNG" title="vivado外部editor链接设置2">
-<p>按照对应步骤点击
-填入对应信息，我的是</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:/Program Files/Microsoft VS Code/Code.exe -g [file name] -l [line number]</span><br></pre></td></tr></table></figure>
-<p>更改编译器路径即可换成你喜欢的editor。后面的参数应该不需要改动，但是没有实践，不保证正确性。<br></p>
-<h2 id="vscode拓展"><a href="#vscode拓展" class="headerlink" title="vscode拓展"></a>vscode拓展</h2><p>推荐verilog编写的好用拓展插件。<br></p>
-<p>在vscode商店搜索<em>verilog</em>，安装前两个即可。<br></p>
-<img src="/2019/04/07/vivado入门坑/vivado的vscode拓展1.PNG" title="vivado的vscode拓展1">
-<p>按照拓展的教程安装即可。注意verilog format需要下载相应的EXE文件。拓展的安装教程都有具体描述，不赘述。建议看完拓展的教程，以避免一些坑点。<br></p>
-<h2 id="vscode拓展的坑"><a href="#vscode拓展的坑" class="headerlink" title="vscode拓展的坑"></a>vscode拓展的坑</h2><p>verilog hdl/system verilog拓展主要提供了语法高亮和自动补全，在自动补全模块有时会出现问题，无法显示自动补全信息。这时可以先将所有的文件保存然后就会出现补全的。<br></p>
-<p>verilog format本身也有一些bug，但是基本不影响使用。<br></p>
-<h1 id="vivado报错总结"><a href="#vivado报错总结" class="headerlink" title="vivado报错总结"></a>vivado报错总结</h1><p>warning一般不会影响程序的正确性，但是建议还是要进行检查，否则即使能够正确烧进板子也有可能运行不正确。critical warning建议必须解决，否则后续 implmentation 或者 generate bitstream 仍然会出现错误。在确保 warning 不会对程序产生明显不可预知效果的情况下再进行实现。<br></p>
-<p>当发现错误之后可以右键错误信息，点击 <em>search for answer record</em> 可以在论坛找到一些帮助。<br>
-<img src="/2019/04/07/vivado入门坑/search_for_answer.PNG" title="search for answer"></p>
-<h2 id="显示某些元件被移除"><a href="#显示某些元件被移除" class="headerlink" title="显示某些元件被移除"></a>显示某些元件被移除</h2><p>在2017.2中会出现类似的报错，这时需要先检查对应的元件有没有在程序中写错名字，需要查看全文的。如果确实没有程序错误那么很可能是vivado本身的问题。在论坛中一些人说是软件错误，升级到2018.03之后尽管还会有warning，但是可以正常综合、实现。实测用2018.3之后相同的工程并没有出现类似错误。<br></p>
-<h2 id="multi-drivers"><a href="#multi-drivers" class="headerlink" title="multi drivers"></a>multi drivers</h2><p>这时应该是变量被重复赋值了。仔细检查相应的赋值语句。如果一个模块被重复使用而且模块中有赋值操作也有可能会导致相应的错误。<br></p>
-<h2 id="unconnected-port"><a href="#unconnected-port" class="headerlink" title="unconnected port"></a>unconnected port</h2><p>检查模块是否只对某个端口进行了操作<br></p>
-<p>例如:<br>
-<img src="/2019/04/07/vivado入门坑/unconnected_port.PNG" title="unconnected_port"></p>
-<p>这里尽管综合正确，但是检查warning会发现btn[1],btn[2],btn[3]没有被连接。而且在后续实现和烧录过程也能够正常进行。这是因为默认对btn[0]进行了连接，实际实现不是预料中的四个按钮进行控制。这也是为什么要检查warning的原因。<br></p>
-<h2 id="功耗"><a href="#功耗" class="headerlink" title="功耗"></a>功耗</h2><p>未解决。<br></p>
-<p>reference:</p>
+                <h1 id="GPU概述"><a href="#GPU概述" class="headerlink" title="GPU概述"></a>GPU概述</h1><p>GPU是异构、众核处理器，针对吞吐优化。</p>
+<p>GPU架构是围绕一个流式多处理器(SM)的可拓展阵列搭建的。可以通过复制这种架构的构建块来实现GPU的硬件并行。</p>
+<p>GPU中的每一个SM都能支持数百个进程并行执行，每个GPU通常有多个SM，所以在一个GPU上可以并行执行数千个进程。</p>
+<p>当启动一个内核网格时，它的线程块被分布在了可用的SM上执行。线程块一旦被调度到一个SM上，其中的线程只会在那个指定的SM上
+并发执行。多个线程块可能会被分配到同一个SM上。同一线程中的指令利用指令级并行性进行流水线化。</p>
+<h2 id="Fermi架构"><a href="#Fermi架构" class="headerlink" title="Fermi架构"></a>Fermi架构</h2><p>以NVIDIA GeForce GTX 480为例：</p>
 <ul>
-<li><a href="https://blog.csdn.net/u012923751/article/details/79554012" target="_blank" rel="noopener">多途径降低FPGA设计的功耗</a></li>
-<li><a href="http://xilinx.eetrend.com/files-eetrend-xilinx/article/200912/300-272-fpga101xcell32.pdf" target="_blank" rel="noopener">赛灵思FPGA的功耗优化设计</a></li>
-<li><a href="https://forums.xilinx.com/t5/%E7%BB%BC%E5%90%88%E8%AE%A8%E8%AE%BA/%E5%8A%9F%E8%80%97%E7%AE%A1%E7%90%86%E6%94%BB%E7%95%A5-19%E6%8B%9B%E9%99%8D%E4%BD%8E20nm-UltraScale-FPGA%E5%99%A8%E4%BB%B6%E5%8A%9F%E8%80%97/td-p/466544" target="_blank" rel="noopener">功耗管理攻略</a></li>
+<li>480个流处理器(stream processors, 也即是CUDA核心)</li>
+<li>SIMT execution(单指令多线程，single instruction multi thread)</li>
+<li>15个核心</li>
+<li>每个核心拥有2组，每组16个SIMD Functional units（每个组简称SM，每个SM含有32个cuda core）</li>
 </ul>
-<p>在进行fpga设计时，要注意降低功耗。否则仍然可能无法正常运行。<br>
-<img src="/2019/04/07/vivado入门坑/功耗on_chip.PNG" title="功耗on_chip">
-<img src="/2019/04/07/vivado入门坑/功耗summary.PNG" title="功耗summary"></p>
-<p>在实现之后，可以再project summary找到如上信息。<br>
-</p>
-<p>我们可以看到，IO功耗占用最大，因此我们应想办法降低IO功耗。<br>
-<img src="/2019/04/07/vivado入门坑/module_lists.PNG" title="module_lists"></p>
-
+<h2 id="Kepler架构"><a href="#Kepler架构" class="headerlink" title="Kepler架构"></a>Kepler架构</h2><p>相比Fermi架构更复杂，但基本概念相似。</p>
+<h1 id="GPU内存和线程关系"><a href="#GPU内存和线程关系" class="headerlink" title="GPU内存和线程关系"></a>GPU内存和线程关系</h1><ul>
+<li>Local Memory
+  线程私有</li>
+<li>Shared Memory
+  每个线程块共有</li>
+<li>Global Memory
+  每个SM中的kernel共有</li>
+</ul>
+<h1 id="CPU-GPU交互"><a href="#CPU-GPU交互" class="headerlink" title="CPU-GPU交互"></a>CPU-GPU交互</h1><ul>
+<li>拥有各自独立的物理内存空间</li>
+<li>通过PCIE总线互连(8GB/s~16GB/s)</li>
+<li>交互开销大</li>
+</ul>
+<h1 id="CUDA函数声明"><a href="#CUDA函数声明" class="headerlink" title="CUDA函数声明"></a>CUDA函数声明</h1><table>
+<thead>
+<tr>
+<th>声明</th>
+<th>执行位置</th>
+<th>调用位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__device__</td>
+<td>device</td>
+<td>device</td>
+</tr>
+<tr>
+<td>__global__</td>
+<td>device</td>
+<td>host</td>
+</tr>
+<tr>
+<td>__host__</td>
+<td>host</td>
+<td>host</td>
+</tr>
+<tr>
+<td>__device__and__host__</td>
+<td>deviceAndHost</td>
+<td>deviceAndHost</td>
+</tr>
+</tbody>
+</table>
+<p>值得注意的是<code>_global__</code>的返回值必须是void。</p>
+<ul>
+<li>在设备上尽量少用递归</li>
+<li>不要使用静态变量</li>
+<li>少用malloc</li>
+<li>小心通过指针实现的函数调用</li>
+</ul>
+<p>这是数据并行处理函数。通过调用kernel函数在设备端创建轻量级线程。线程由硬件负责创建并调度。</p>
+<h1 id="内存传输"><a href="#内存传输" class="headerlink" title="内存传输"></a>内存传输</h1><p>gpu内存访问关系见上。</p>
+<p>cudaMalloc()分配的是global memory。</p>
+<h1 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h1><p>线程同步只发生在线程块内，全局的线程没有同步机制。</p>
+<p>线程块内的所有线程同步。可以保证数据的一致性。</p>
+<p>调用<code>__syncthread()</code>创建一个同步点，每个线程块内的所有线程都执行到同步点之后才能够继续向下执行。
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">mds[i] = md[j];</span><br><span class="line">__syncthread();</span><br><span class="line">func(mds[i], mds[i+<span class="number">1</span>]);</span><br></pre></td></tr></table></figure></p>
+<p>如在上例中，如果没有线程同步，可能会造成数据不可重复度。</p>
+<h2 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h2><ol>
+<li>线程的执行时间尽量接近。否则会造成时间大量浪费</li>
+<li>线程同步仅在线程块内进行。因为更大范围的线程同步需要繁杂的同步机制，降低效能。</li>
+</ol>
+<h2 id="潜在问题"><a href="#潜在问题" class="headerlink" title="潜在问题"></a>潜在问题</h2><ol>
+<li>同步一定会使得线程停止。</li>
+<li>可能造成死锁。如下例：<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(someFunc())</span><br><span class="line">&#123;</span><br><span class="line">    __syncthread();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    __syncthread();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="线程调度"><a href="#线程调度" class="headerlink" title="线程调度"></a>线程调度</h1>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/04/24/stm32之keli-vision设置/" data-toggle="tooltip" data-placement="top" title="stm32之keli-vision设置">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/04/07/平衡车制作/" data-toggle="tooltip" data-placement="top" title="平衡车制作">Next Post &rarr;</a>
+                        <a href="/2019/07/26/CUDA编程学习网站/" data-toggle="tooltip" data-placement="top" title="CUDA编程学习网站">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -263,7 +298,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vivado"><span class="toc-text">vivado</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#text-editor"><span class="toc-text">text-editor</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置外部编辑器链接"><span class="toc-text">设置外部编辑器链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode拓展"><span class="toc-text">vscode拓展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode拓展的坑"><span class="toc-text">vscode拓展的坑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vivado报错总结"><span class="toc-text">vivado报错总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#显示某些元件被移除"><span class="toc-text">显示某些元件被移除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#multi-drivers"><span class="toc-text">multi drivers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unconnected-port"><span class="toc-text">unconnected port</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功耗"><span class="toc-text">功耗</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GPU概述"><span class="toc-text">GPU概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fermi架构"><span class="toc-text">Fermi架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kepler架构"><span class="toc-text">Kepler架构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GPU内存和线程关系"><span class="toc-text">GPU内存和线程关系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CPU-GPU交互"><span class="toc-text">CPU-GPU交互</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CUDA函数声明"><span class="toc-text">CUDA函数声明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#内存传输"><span class="toc-text">内存传输</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程同步"><span class="toc-text">线程同步</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#要求"><span class="toc-text">要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#潜在问题"><span class="toc-text">潜在问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线程调度"><span class="toc-text">线程调度</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -284,8 +319,6 @@
                         <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
-                        
-                        <a class="tag" href="/tags/#自己动手写CPU" title="自己动手写CPU">自己动手写CPU</a>
                         
                     </div>
                 </section>

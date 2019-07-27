@@ -80,7 +80,7 @@
                         
 							
                         <li>
-                            <a href="/Categories/">Categories</a>
+                            <a href="/Tags/">Tags</a>
                         </li>
 							
 						
@@ -88,7 +88,7 @@
                         
 							
                         <li>
-                            <a href="/Tags/">Tags</a>
+                            <a href="/Categories/">Categories</a>
                         </li>
 							
 						
@@ -202,10 +202,13 @@
 <li>字节(byte): 长度是8bit</li>
 <li>半字(half word): 长度是16bit</li>
 <li>字(word)：长度是32bit</li>
-<li>双字(double word)：长度是64bit<br>此外，还有32位单精度浮点数，64位双精度浮点数</li>
+<li>双字(double word)：长度是64bit
+此外，还有32位单精度浮点数，64位双精度浮点数</li>
 </ul>
-<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>RISC一大特点是：大量使用寄存器。这是因为寄存器的存取可以在一个时钟周期内完成，同时简化了寻址方式。<br><br>MIPS32中的指令中除加载/存储指令外，都是使用寄存器或者<a href="https://baike.baidu.com/item/%E7%AB%8B%E5%8D%B3%E6%95%B0/3062020" target="_blank" rel="noopener">立即数</a>作为操作数的。<br></p>
-<h2 id="通用寄存器（General-Purpose-Register-GPR）"><a href="#通用寄存器（General-Purpose-Register-GPR）" class="headerlink" title="通用寄存器（General Purpose Register, GPR）"></a>通用寄存器（General Purpose Register, GPR）</h2><p>MIPS32定义了32个通用寄存器，使用$0、$1…$31表示，都是32位。<br>关于这32个通用寄存器的约定用法有时间补充。</p>
+<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>RISC一大特点是：大量使用寄存器。这是因为寄存器的存取可以在一个时钟周期内完成，同时简化了寻址方式。<br>
+MIPS32中的指令中除加载/存储指令外，都是使用寄存器或者<a href="https://baike.baidu.com/item/%E7%AB%8B%E5%8D%B3%E6%95%B0/3062020" target="_blank" rel="noopener">立即数</a>作为操作数的。<br></p>
+<h2 id="通用寄存器（General-Purpose-Register-GPR）"><a href="#通用寄存器（General-Purpose-Register-GPR）" class="headerlink" title="通用寄存器（General Purpose Register, GPR）"></a>通用寄存器（General Purpose Register, GPR）</h2><p>MIPS32定义了32个通用寄存器，使用$0、$1…$31表示，都是32位。
+关于这32个通用寄存器的约定用法有时间补充。</p>
 <h2 id="特殊寄存器"><a href="#特殊寄存器" class="headerlink" title="特殊寄存器"></a>特殊寄存器</h2><p>MIPS32定义了3个特殊寄存器：</p>
 <ul>
 <li>程序计数器（Program Counter, PC)</li>
@@ -214,8 +217,12 @@
 </ul>
 <p>HI和LO保存乘法运算的结果，HI存储高32位，LO存储低32位；进行除法运算时，HI存储余数，LO存储商。<br></p>
 <h1 id="字节次序"><a href="#字节次序" class="headerlink" title="字节次序"></a>字节次序</h1><p>数据在存储器中按字节存放，处理器也是按照字节访问存储器中的指令或数据。<br></p>
-<h2 id="大端模式（Big-Endian）"><a href="#大端模式（Big-Endian）" class="headerlink" title="大端模式（Big-Endian）"></a>大端模式（Big-Endian）</h2><p>也称作MSB（Most Significant Byte）<br><br>若读出一个字，即4个字节，那么交给处理器的结果是<br><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;mem[n],mem[n+1],mem[n+2],mem[n+3]&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="小端模式（Little-Endian）"><a href="#小端模式（Little-Endian）" class="headerlink" title="小端模式（Little-Endian）"></a>小端模式（Little-Endian）</h2><p>也称作LSB(Least Significant Byte)<br><br>结果是<br><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;mem[n+3],mem[n+2],mem[n+1],mem[n]&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="大端模式（Big-Endian）"><a href="#大端模式（Big-Endian）" class="headerlink" title="大端模式（Big-Endian）"></a>大端模式（Big-Endian）</h2><p>也称作MSB（Most Significant Byte）<br>
+若读出一个字，即4个字节，那么交给处理器的结果是<br>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;mem[n],mem[n+1],mem[n+2],mem[n+3]&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="小端模式（Little-Endian）"><a href="#小端模式（Little-Endian）" class="headerlink" title="小端模式（Little-Endian）"></a>小端模式（Little-Endian）</h2><p>也称作LSB(Least Significant Byte)<br>
+结果是<br>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;mem[n+3],mem[n+2],mem[n+1],mem[n]&#125;</span><br></pre></td></tr></table></figure></p>
 <h1 id="指令格式"><a href="#指令格式" class="headerlink" title="指令格式"></a>指令格式</h1><img src="/2019/04/05/MIPS32指令集架构简介/MIPS32架构中的三种指令格式.PNG" title="MIPS32架构中的三种指令格式">
 
                 <hr>
